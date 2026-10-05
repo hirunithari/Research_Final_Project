@@ -4,12 +4,20 @@ import i18next from "i18next";
 import { FaChild, FaUser, FaSignOutAlt, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
+<<<<<<< HEAD
 import { useNavigate, Link, useLocation } from 'react-router-dom'; 
+=======
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
 import { onAuthStateChanged } from 'firebase/auth';
 import "./header.css";
 
 const NAV_ITEMS = [
+<<<<<<< HEAD
   // { label: "Home", to: "/home" },
+=======
+  { label: "Home", to: "/home" },
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
   {
     label: "Static Signs",
     children: [
@@ -30,7 +38,13 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Traffic Signs", to: "/traffic-signs" },
+<<<<<<< HEAD
   { label: "Text to Sign", to: "/textSign" },
+=======
+  { label: "Colors", to: "/learnColor" },
+  { label: "Text to Sign", to: "/textSign" },
+  { label: "Chatbot", to: "/chatbot" },
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
   { label: "Guardian", to: "/guardian-dashboard" },
 ];
 
@@ -154,7 +168,11 @@ export default function Header() {
             value={localStorage.getItem("i18nextLng") || "si"}
             onChange={handleLanguageChange}
           >
+<<<<<<< HEAD
             { <option value="en">English</option> }
+=======
+            <option value="en">English</option>
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
             <option value="si">Sinhala</option>
           </select>
 
@@ -166,7 +184,10 @@ export default function Header() {
               <button className="btn btn-danger" onClick={handleLogout}>
                 <FaSignOutAlt /> Logout
               </button>
+<<<<<<< HEAD
               
+=======
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
             </>
           )}
 

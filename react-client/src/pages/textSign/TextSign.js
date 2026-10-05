@@ -5,7 +5,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SyncLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
+<<<<<<< HEAD
 import { FaFont, FaUpload, FaHandPaper } from "react-icons/fa";
+=======
+import { FaFont, FaUpload } from "react-icons/fa";
+>>>>>>> eb53dfd910c3a99e0e13928afec640eab2bab240
 import { StaticSignData } from "../../Data/StaticSignData";
 import { SinhalaToEnglish } from "../../Data/EnglishToSinhala";
 import "./text-sign.css";
