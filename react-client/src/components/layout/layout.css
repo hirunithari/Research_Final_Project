@@ -1,0 +1,108 @@
+/* Sinhala Font Declaration */
+@font-face {
+  font-family: 'BhashitaComplexSansBold';
+  src: url('../../../public/fonts/BhashitaComplexSansBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class for manual Sinhala font application */
+.sinhala-font {
+  font-family: 'BhashitaComplexSansBold', 'Arial Unicode MS', 'Noto Sans Sinhala', sans-serif !important;
+}
+
+/* Apply Sinhala font to elements with Sinhala text */
+[lang="si"], 
+.sinhala-text,
+.si {
+  font-family: 'BhashitaComplexSansBold', 'Arial Unicode MS', 'Noto Sans Sinhala', sans-serif;
+}
+
+/* Apply Sinhala font when language is Sinhala */
+html[lang="si"] body,
+body[lang="si"] {
+  font-family: 'BhashitaComplexSansBold', 'Arial Unicode MS', 'Noto Sans Sinhala', sans-serif;
+}
+
+/* Apply Sinhala font to all text when language is Sinhala */
+html[lang="si"] *,
+body[lang="si"] * {
+  font-family: 'BhashitaComplexSansBold', 'Arial Unicode MS', 'Noto Sans Sinhala', sans-serif;
+}
+
+/* Specific elements that should always use Sinhala font when language is Sinhala */
+html[lang="si"] h1,
+html[lang="si"] h2,
+html[lang="si"] h3,
+html[lang="si"] h4,
+html[lang="si"] h5,
+html[lang="si"] h6,
+html[lang="si"] p,
+html[lang="si"] span,
+html[lang="si"] div,
+html[lang="si"] button,
+html[lang="si"] input,
+html[lang="si"] textarea,
+html[lang="si"] label,
+html[lang="si"] a {
+  font-family: 'BhashitaComplexSansBold', 'Arial Unicode MS', 'Noto Sans Sinhala', sans-serif;
+}
+
+/* Layout Styles */
+.layout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+ 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px; /* Slightly less padding on mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding-top: 65px; /* Even less padding on small screens */
+  }
+}
+
+/* Ensure proper spacing for specific components */
+.main-content > * {
+  width: 100%;
+}
+
+/* Fix for components that might have their own padding */
+.main-content .container,
+.main-content .container-fluid {
+  padding-top: 1rem;
+}
+
+/* Special handling for landing page (no header padding needed) */
+.main-content .top-banner-section {
+  margin-top: -80px; /* Compensate for the padding-top */
+  padding-top: 80px; /* Add padding to the banner itself */
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.main-content:has(.top-banner-section) {
+  padding-top: 0;
+}
+
+/* Ensure footer stays at bottom */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-container > main {
+  flex: 1;
+}

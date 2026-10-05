@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
+/* ── Page shell ── */
+.ssb-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #f0fdf4 100%);
+  padding: 2rem 1rem;
+  font-family: 'Inter', sans-serif;
+}
+.ssb-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Breadcrumb ── */
+.ssb-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+.ssb-breadcrumb a { color: #667eea; text-decoration: none; font-weight: 500; }
+.ssb-breadcrumb a:hover { text-decoration: underline; }
+.ssb-breadcrumb-sep { color: #cbd5e0; }
+.ssb-breadcrumb-current { color: #2d3748; font-weight: 600; }
+
+/* ── Hero ── */
+.ssb-hero {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+.ssb-hero-icon { font-size: 3rem; flex-shrink: 0; }
+.ssb-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+}
+.ssb-hero-sub { font-size: 0.9rem; opacity: 0.85; }
+
+/* ── Section ── */
+.ssb-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.ssb-section-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+}
+.ssb-step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ssb-hint {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #a0aec0;
+}
+
+/* ── Type row ── */
+.ssb-type-row {
+  display: flex;
+  gap: 0.75rem;
+}
+.ssb-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  color: #2d3748;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.ssb-input:focus { border-color: #667eea; }
+.ssb-btn-primary {
+  padding: 0.75rem 1.4rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.ssb-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.ssb-btn-primary:hover:not(:disabled) { opacity: 0.9; }
+
+/* ── Word cards grid ── */
+.ssb-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ssb-word-card {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  border: 2px solid #c4b5fd;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 110px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.ssb-word-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+  border-color: #7c3aed;
+}
+.ssb-word-card.selected {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-color: #10b981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+}
+
+.ssb-word-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4c1d95;
+  text-align: center;
+  word-break: break-word;
+}
+.ssb-word-card.selected .ssb-word-label { color: #065f46; }
+
+.ssb-word-letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.ssb-word-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: #7c3aed;
+  color: #fff;
+  margin-top: 0.15rem;
+}
+.ssb-word-card.selected .ssb-word-badge {
+  background: #10b981;
+}
+
+/* ── Letter chips ── */
+.ssb-letter-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+.ssb-letter-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 7px;
+  border: 1.5px solid #e9d5ff;
+  background: #fff;
+}
+.ssb-word-card.selected .ssb-letter-img { border-color: #6ee7b7; }
+.ssb-letter-missing {
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  background: #f1f5f9;
+  border: 1.5px dashed #cbd5e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+.ssb-letter-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #7c3aed;
+  text-transform: uppercase;
+}
+.ssb-word-card.selected .ssb-letter-label { color: #065f46; }
+.ssb-no-sign { font-size: 0.8rem; color: #94a3b8; }
+
+/* ── Sentence strip ── */
+.ssb-strip-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.ssb-strip-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+}
+.ssb-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.ssb-strip-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 1.5px solid #a5b4fc;
+  border-radius: 99px;
+  padding: 0.4rem 0.75rem 0.4rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #3730a3;
+}
+.ssb-strip-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6366f1;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.15s;
+}
+.ssb-strip-remove:hover { color: #dc2626; }
+
+.ssb-strip-output {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.ssb-output-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #718096;
+  white-space: nowrap;
+}
+.ssb-output-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2d3748;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ssb-strip-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.ssb-btn-secondary {
+  padding: 0.6rem 1.1rem;
+  background: #f1f5f9;
+  color: #4a5568;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ssb-btn-secondary:hover { background: #e2e8f0; }
+
+.ssb-btn-confirm {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+.ssb-btn-confirm:hover { opacity: 0.9; }
+
+/* ── Final sign output ── */
+.ssb-final-sentence-bar {
+  background: linear-gradient(135deg, #d1fae5, #dcfce7);
+  border: 1.5px solid #6ee7b7;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+.ssb-final-sentence-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #065f46;
+  white-space: nowrap;
+}
+.ssb-final-sentence-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #064e3b;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ssb-final-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.ssb-final-card {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  border: 1.5px solid #c4b5fd;
+  border-left: 4px solid #7c3aed;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+.ssb-final-word {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4c1d95;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+.ssb-final-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+.ssb-final-card .ssb-letter-img {
+  width: 52px;
+  height: 52px;
+}
+.ssb-final-card .ssb-letter-missing {
+  width: 52px;
+  height: 52px;
+}
+.ssb-final-card .ssb-letter-label { color: #7c3aed; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ssb-hero { flex-direction: column; text-align: center; padding: 1.5rem; }
+  .ssb-hero-icon { font-size: 2.5rem; }
+  .ssb-type-row { flex-direction: column; }
+  .ssb-btn-primary { width: 100%; }
+  .ssb-cards-grid { justify-content: center; }
+}

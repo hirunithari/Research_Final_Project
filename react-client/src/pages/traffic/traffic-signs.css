@@ -1,0 +1,583 @@
+/* Traffic Signs Page - Clean Compact Layout */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ── Page ── */
+.traffic-signs-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8ecf4 100%);
+  padding: 1.25rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.traffic-signs-page .container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ── Grid: 3 columns on desktop ── */
+.traffic-signs-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ── Card base ── */
+.ts-card {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.ts-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.ts-card-header {
+  background: var(--primary-gradient);
+  color: var(--white);
+  padding: 0.875rem 1.25rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.ts-card .card-body {
+  padding: 1rem;
+}
+
+/* ── Reference box (left column) ── */
+.ts-refbox {
+  min-height: 200px;
+  background: #f8fafc;
+  border: 2px dashed rgba(79, 172, 254, 0.25);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  transition: border-color 0.3s;
+}
+
+.ts-refbox:hover {
+  border-color: #4facfe;
+}
+
+.ts-refimg {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ts-help {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ── Form elements ── */
+.traffic-signs-page .form-label {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.traffic-signs-page .form-select {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+
+.traffic-signs-page .form-select:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 0 3px rgba(79,172,254,0.12);
+  outline: none;
+}
+
+/* ── Match ring (right column) ── */
+.ts-match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.ts-match-ring {
+  width: 130px;
+  height: 130px;
+  position: relative;
+}
+
+.ts-match-ring-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.ts-match-center {
+  position: absolute;
+  inset: 14px;
+  background: var(--white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.ts-match-pct {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.ts-match-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* ── Top-K predictions (right column) ── */
+.ts-topk {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ts-topk .list-group-item {
+  border: 1px solid #edf2f7;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: #fafbfc;
+  transition: all 0.2s;
+}
+
+.ts-topk .list-group-item:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.ts-topk-item--best {
+  border-left: 3px solid #4facfe;
+  background: #f0f9ff !important;
+}
+
+.ts-topk-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+}
+
+.ts-topk-pct {
+  font-variant-numeric: tabular-nums;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ── Progress bar ── */
+.ts-progress {
+  height: 6px;
+  background-color: #edf2f7;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.35rem 0;
+}
+
+.ts-progress .progress-bar {
+  background: var(--accent-gradient);
+  transition: width 0.4s ease;
+  border-radius: 3px;
+}
+
+.progress-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Live stats bar (always visible below grid) ── */
+.ts-live-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.ts-live-stat {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ts-live-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.ts-live-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+
+.ts-live-stat-value.accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ts-live-stat-value.primary {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ts-live-stat-value.success {
+  background: var(--success-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ts-live-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+/* ── Guardian Dashboard Card ── */
+.ts-guardian-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-guardian-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary-gradient);
+}
+
+.ts-guardian-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ts-guardian-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ts-guardian-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.ts-guardian-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.ts-guardian-btn {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.55rem 1.25rem;
+  background: var(--primary-gradient);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ts-guardian-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .ts-guardian-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .ts-guardian-card::before {
+    width: 100%;
+    height: 4px;
+    bottom: auto;
+  }
+}
+
+/* ── Session stats footer ── */
+.session-stats {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+  position: relative;
+}
+
+.session-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--success-gradient);
+  border-radius: 16px 16px 0 0;
+}
+
+.session-stats h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+}
+
+.stat-value.text-primary {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-value.text-success {
+  background: var(--success-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Save button ── */
+.btn-save-progress {
+  background: var(--success-gradient);
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+  margin-top: 0.75rem;
+}
+
+.btn-save-progress:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-save-progress:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Progress message ── */
+.progress-message {
+  background: #f0f9ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+/* ── Alerts ── */
+.traffic-signs-page .alert {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.traffic-signs-page .alert-info {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.traffic-signs-page .alert-danger {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.traffic-signs-page .alert-success {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .traffic-signs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Right column (predictions) spans full width below */
+  .traffic-signs-grid > .ts-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .traffic-signs-grid > .ts-card:nth-child(3) .ts-match {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .traffic-signs-page {
+    padding: 0.75rem;
+  }
+
+  .traffic-signs-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .ts-match-ring {
+    width: 110px;
+    height: 110px;
+  }
+
+  .ts-match-pct {
+    font-size: 1.4rem;
+  }
+
+  .ts-live-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .ts-live-stat-value {
+    font-size: 1.2rem;
+  }
+
+  .session-stats .row .col-4 {
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-match-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .ts-match-pct {
+    font-size: 1.2rem;
+  }
+
+  .ts-live-stat {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .ts-live-stat-value {
+    font-size: 1rem;
+  }
+}
